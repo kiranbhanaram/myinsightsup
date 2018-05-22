@@ -1,0 +1,40 @@
+{
+    "name": "com.shell.myinsightup",
+    "displayName": "MyInsightUP",
+    "version": "1.0.0",
+    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-ios": "^4.5.4",
+        "cordova-plugin-add-swift-support": "^1.7.2",
+        "cordova-plugin-dialogs": "^1.3.3",
+        "cordova-plugin-disabledatadetectors": "git+https://github.com/kiranbhanaram/cordova-plugin-disabledatadetectors.git",
+        "cordova-plugin-rsacertificate": "git+https://github.com/kiranbhanaram/cordova-plugin-rsacertificate.git",
+        "cordova-plugin-statusbar": "^2.2.3",
+        "cordova-plugin-touch-id": "^3.2.0",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "fr.spirotron.cordova.disabledatadetectors": "https://github.com/kiranbhanaram/cordova-plugin-disabledatadetectors.git"
+    },
+    "cordova": {
+        "plugins": {
+            "fr.spirotron.cordova.disabledatadetectors": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-touch-id": {},
+            "cordova-plugin-rsacertificate": {
+                "CERTIFICATE_EXTENSION": "upc",
+                "ENCRYPTEDDATA_EXTENSION": "upi"
+            },
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-disabledatadetectors": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
+}

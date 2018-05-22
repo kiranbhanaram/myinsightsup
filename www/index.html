@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name = "format-detection" content = "telephone=no">
+  <title>Shell Dashboard (Upstream)</title>
+
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="./libs/public/jstree/custom/themes/default/style.min.css">
+  <link rel="stylesheet" href="./libs/public/jqgrid/4.15.2/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="./libs/public/jqgrid/4.15.2/css/ui.jqgrid.css" />
+  <link rel="stylesheet" href="./libs/public/bulma-grid/bulma-grid.min.css" />
+
+  <!-- External libraries -->
+  <script src="./libs/public/jquery/2.2.4/jquery.min.js"></script>
+  <script src="./libs/public/highcharts/4.2.7/highcharts.js"></script>
+  <script src="./libs/public/js-xlsx/0.8.1/xlsx.core.min.js"></script>
+  <script src="./libs/public/html2canvas/0.4.1/html2canvas.js"></script>
+  <script src="./libs/public/canvg/1.3.0/canvg.min.js"></script>
+  <script src="./libs/public/rgbcolor/rgbcolor.js"></script>
+  <script src="./libs/public/jspdf/1.0.272/jspdf.debug.js"></script>
+  <script src="./libs/public/jstree/custom/jstree.js"></script>
+  <script src="./libs/public/polyfills/arraybuffer-splice.js"></script>
+  <script src="./libs/public/filesaver/fileSaver.js"></script>
+  <script src="./libs/public/lz-string/lz-string.min.js"></script>
+  <script src="./libs/public/lz-string/base64-string.js"></script>
+  <script src="./libs/public/md5js/md5.js"></script>
+  <script src="./libs/public/jqgrid/4.15.2/jquery.jqgrid.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+
+  <!-- Internal JavaScript libraries -->
+  <script src="./js/shell.execdblpup.mobile.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      // check if this code is running from a mobile device or from a desktop
+      var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+      if ( app ) {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("resume", shell.app.execdblp.mobilereader.handleDeviceReady, false);
+        document.addEventListener("pause", shell.app.execdblp.mobilereader.handleDevicePause, false);
+
+      } else {
+        shell.app.execdblp.mobilereader.showFileSelector();
+        $("#jbi_app_lp").show();
+      }
+
+
+
+      function onDeviceReady() {
+        shell.app.execdblp.mobilereader.handleDeviceReady();
+
+        // Event Handler for InitSuccess
+        // window.plugins.airwatch.setSDKEventListener(
+        //     function(eventName, eventData) {
+        //       switch (eventName) {
+        //         case "initSuccess":
+        //           shell.app.execdblp.mobilereader.handleDeviceReady();
+        //           break;
+
+        //         case "wipe":
+        //           break;
+
+        //         case "lock":
+        //           break;
+
+        //         case "unlock":
+        //           break;
+        //       }
+        //     }
+        // );
+      }
+
+    });
+  </script>
+</head>
+<body>
+  <div id="jbi_app_lp" style="display:none;"></div>
+  <div id="jbi_app_report" style="display:none;"></div>
+</body>
+</html>
